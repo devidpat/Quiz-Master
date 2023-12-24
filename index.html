@@ -4,54 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Master</title>
-    <script>
-        const arr = [
-            {que: {que: "Question1", ops:['op1', 'op2', 'op3', 'op4']}, ans: 'op1'},
-            {que: {que: "Question2", ops:['ops1', 'ops2', 'ops3', 'ops4']}, ans: 'op1'}
-        ]
-        function next(id) {
-            if(id >= arr.length)
-                return console.log("Game Over"); 
-            arr.forEach((idx) => {
-                console.log(idx)
-                document.getElementById('que').innerText = idx.que.que;
-                idx.que.ops.forEach((opt, id) => {
-                    document.getElementById(`op${id+1}`).innerText = opt
-                })
-
-            })
-        }
-
-        function prev(id) {
-            if(id < 0)
-                document.getElementById('prev').removeAttributeNode();
-            arr.forEach((idx) => {
-                document.getElementById('que').innerText = idx.que.que;
-                idx.que.ops.forEach((opt, id) => {
-                    document.getElementById(`op${id+1}`).innerText = opt
-                })
-
-            })
-        }
-    </script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="container">
-        <h1 style="text-align: center;">Quiz Master</h1>
-        <div class="question">
-            <p id="que">Question</p>
-            <ol>
-                <li id="op1">option1</li>
-                <li id="op2">option2</li>
-                <li id="op3">option3</li>
-                <li id="op4">option4</li>
-            </ol>
-           
-            <div class="button-panel">
-                <input type="button" id="prev" value="Prev">
-                <input type="button" id="next" value="Next" onclick="next(0);">
-            </div>
+   <div class="app">
+    <h1>Quiz Master</h1>
+    <div class="quiz">
+        <h2 id="question">
+            Question goes here
+        </h2>
+        <div id="answer-buttons">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+            <button class="btn">Answer 4</button>
         </div>
+        <button id="next-btn">Next</button>
     </div>
+   </div> 
 </body>
+<script src="script.js"></script>
 </html>
